@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../Axios/axios";
 import useLoggedInUser from "../hooks/useLoggedInUser";
-import NavBar from "./NavBar/NavBar";
+import DashBoardNavBar from "./NavBar/DashboardNavBar";
+import "./Dashboard.scss";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -27,10 +28,9 @@ const Dashboard = () => {
     navigate("/new-game");
   };
   return (
-    <div>
-      <NavBar />
-      <button onClick={handleClick}>Start new game</button>
-      <div>
+    <>
+      <DashBoardNavBar />
+      <div className="dashboard">
         <table>
           <thead>
             <tr>
@@ -51,8 +51,11 @@ const Dashboard = () => {
             })}
           </tbody>
         </table>
+        <button onClick={handleClick} className="dashboard__button">
+          Start new game
+        </button>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -44,10 +44,13 @@ const LoginPage = () => {
             handleInputChange={handleInputChange}
             value={loginDetails.password}
           />
-          <input type="submit" value="Login" />
+          <input type="submit" value="Login" className="login__button" />
         </form>
         <p className="login__additional">
-          Don't have an account? <Link to="/signup">Sign Up</Link>
+          Don't have an account?{" "}
+          <Link to="/signup" className="login__additional__link">
+            Sign Up
+          </Link>
         </p>
       </div>
     </div>

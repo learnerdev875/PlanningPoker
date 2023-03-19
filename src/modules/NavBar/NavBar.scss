@@ -19,4 +19,28 @@
       font-size: 1.5rem;
     }
   }
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    button {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      gap: 0.5rem;
+      &:hover {
+        color: #bface2;
+      }
+    }
+    &__logout {
+      font-size: 1.5rem;
+      cursor: pointer;
+      &:hover {
+        color: #bface2;
+      }
+    }
+  }
 }

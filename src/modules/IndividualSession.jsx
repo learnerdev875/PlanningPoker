@@ -109,7 +109,7 @@ const IndividualSession = ({ sessionId }) => {
     getAllUserStories();
   }, [next2]);
   return (
-    <div>
+    <>
       <NavBar
         setShowAddStory={setShowAddStory}
         showAddStory={showAddStory}
@@ -117,72 +117,76 @@ const IndividualSession = ({ sessionId }) => {
         showStories={showStories}
         isModerator={isModerator}
       />
-      <h1>Session</h1>
-      <h2>Participants</h2>
-      <ul>
-        {members?.map((member) => (
-          <li key={member.id}>{member.fullName}</li>
-        ))}
-      </ul>
-      <div>
-        <button onClick={endSession}>End Session</button>
+      <div className="session">
+        <h1 className="session__title">Session {sessionId}</h1>
+        <h2 className="session__participants">Participants</h2>
+        <ul>
+          {members?.map((member) => (
+            <li key={member.id}>{member.fullName}</li>
+          ))}
+        </ul>
+        <div>
+          <button onClick={endSession}>End Session</button>
+        </div>
+        {showAddStory && (
+          <div>
+            <h1>All User Stories</h1>
+            <div>
+              {userStories?.map((userStory, index) => (
+                <UserStory
+                  id={userStory.id}
+                  name={userStory.name}
+                  status={userStory.status}
+                  index={index}
+                  isModerator={isModerator}
+                />
+              ))}
+            </div>
+            {showAddStoryForm ? (
+              <form onSubmit={addNewStory}>
+                <input
+                  type="text"
+                  placeholder="New Story"
+                  name="storyName"
+                  value={storyName}
+                  onChange={(e) => setStoryName(e.target.value)}
+                />
+                <button onClick={() => setShowAddStoryForm(false)}>
+                  Cancel
+                </button>
+                <input type="submit" value="Add" />
+              </form>
+            ) : (
+              <button onClick={() => setShowAddStoryForm(true)}>Add new</button>
+            )}
+          </div>
+        )}
+        {showStories && (
+          <div>
+            <h1>All user Stories</h1>
+            <div>
+              {userStories?.map((userStory, index) => (
+                <UserStory
+                  id={userStory.id}
+                  name={userStory.name}
+                  status={userStory.status}
+                  index={index}
+                  sessionId={sessionId}
+                  isModerator={isModerator}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+        <IndividualStoryDashboard
+          setVote={setVote}
+          sessionId={sessionId}
+          vote={vote}
+          userId={loggedInUserInfo.id}
+          isModerator={isModerator}
+        />
       </div>
-      {showAddStory && (
-        <div>
-          <h1>All User Stories</h1>
-          <div>
-            {userStories?.map((userStory, index) => (
-              <UserStory
-                id={userStory.id}
-                name={userStory.name}
-                status={userStory.status}
-                index={index}
-                isModerator={isModerator}
-              />
-            ))}
-          </div>
-          {showAddStoryForm ? (
-            <form onSubmit={addNewStory}>
-              <input
-                type="text"
-                placeholder="New Story"
-                name="storyName"
-                value={storyName}
-                onChange={(e) => setStoryName(e.target.value)}
-              />
-              <button onClick={() => setShowAddStoryForm(false)}>Cancel</button>
-              <input type="submit" value="Add" />
-            </form>
-          ) : (
-            <button onClick={() => setShowAddStoryForm(true)}>Add new</button>
-          )}
-        </div>
-      )}
-      {showStories && (
-        <div>
-          <h1>All user Stories</h1>
-          <div>
-            {userStories?.map((userStory, index) => (
-              <UserStory
-                id={userStory.id}
-                name={userStory.name}
-                status={userStory.status}
-                index={index}
-                sessionId={sessionId}
-                isModerator={isModerator}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-      <IndividualStoryDashboard
-        setVote={setVote}
-        sessionId={sessionId}
-        vote={vote}
-        userId={loggedInUserInfo.id}
-        isModerator={isModerator}
-      />
-    </div>
+    </>
   );
 };
 

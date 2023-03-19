@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUpPage from "./Authentication/SignUp/SignUpPage";
 import LoginPage from "./Authentication/Login/LoginPage";
 import Dashboard from "./modules/Dashboard";
-import NewGame from "./modules/NewGame";
+import NewGame from "./modules/CreateSession/NewGame";
 import Session from "./modules/Session";
 import "./styles/App.scss";
 import ErrorPage from "./modules/ErrorPage";

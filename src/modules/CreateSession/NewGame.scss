@@ -1,0 +1,25 @@
+.newSession {
+  &__form {
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      padding-bottom: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 50%;
+      input[type="submit"] {
+        background-color: #655dbb;
+        border: none;
+        padding: 1rem;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

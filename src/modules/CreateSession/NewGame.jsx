@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import FormInput from "../Authentication/FormInput";
-import axios from "../Axios/axios";
+import FormInput from "../../Authentication/FormInput";
+import axios from "../../Axios/axios";
 import { useNavigate } from "react-router-dom";
+import DashBoardNavBar from "../NavBar/DashboardNavBar";
+import "./NewGame.scss";
 
 const NewGame = () => {
   const [session, setSession] = useState({
@@ -42,24 +44,27 @@ const NewGame = () => {
     }
   };
   return (
-    <div>
-      <h1>Choose a name and description</h1>
-      <form onSubmit={createNewSession}>
-        <FormInput
-          type="text"
-          label="Game's name"
-          name="session_name"
-          handleInputChange={handleInputChange}
-        />
-        <FormInput
-          type="text"
-          label="Game's description"
-          name="session_description"
-          handleInputChange={handleInputChange}
-        />
-        <input type="submit" value="Create game" />
-      </form>
-    </div>
+    <>
+      <DashBoardNavBar />
+      <div className="newSession__form">
+        <h1>Choose a name and description</h1>
+        <form onSubmit={createNewSession}>
+          <FormInput
+            type="text"
+            label="Session name"
+            name="session_name"
+            handleInputChange={handleInputChange}
+          />
+          <FormInput
+            type="text"
+            label="Session description"
+            name="session_description"
+            handleInputChange={handleInputChange}
+          />
+          <input type="submit" value="Create game" />
+        </form>
+      </div>
+    </>
   );
 };
 
