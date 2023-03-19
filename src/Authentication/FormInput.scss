@@ -1,0 +1,10 @@
+.form__input {
+  display: flex;
+  flex-direction: column;
+  input {
+    background-color: #f6f6f6;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+}

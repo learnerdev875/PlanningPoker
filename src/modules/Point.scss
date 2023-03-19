@@ -1,0 +1,11 @@
+.userStory {
+  &__point {
+    border: 1px solid black;
+    padding: 20px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

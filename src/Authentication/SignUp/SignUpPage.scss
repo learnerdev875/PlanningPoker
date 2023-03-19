@@ -1,0 +1,70 @@
+@import "../../styles/mixins.scss";
+
+.signup {
+  display: grid;
+  width: 100%;
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &__login {
+    &__additional {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    &__link {
+      text-decoration: none;
+      color: #2b8ef1;
+      font-weight: 600;
+    }
+  }
+  &__title {
+    margin-bottom: 1rem;
+  }
+  &__right {
+    background-color: #fff;
+    padding: 1rem 2rem;
+  }
+  &__left {
+    display: none;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: fill;
+    }
+
+    @include md {
+      display: block;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    &__passwords {
+      display: flex;
+      gap: 1.6rem;
+    }
+    #signup__form__checkbox {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 0.5rem;
+    }
+    input[type="submit"] {
+      background-color: #3ea2f9;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 0;
+      border-radius: 10px;
+    }
+  }
+  &__or {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

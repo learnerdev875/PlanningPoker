@@ -1,0 +1,13 @@
+.login {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  &__container {
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: #fff;
+  }
+  &__title {
+    font-size: 3rem;
+  }
+}

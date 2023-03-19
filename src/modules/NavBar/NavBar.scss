@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #3e54ac;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    &__logo {
+      height: 3rem;
+      width: 3rem;
+      background-color: #655dbb;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+  }
+}
